@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>VDM Connect - Premier College Portal</title>
+
+  <!-- Google Fonts: Playfair Display for elegant headings, Poppins for clean modern body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Link to External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       1. NAVIGATION BAR (Fixed at top with pure CSS mobile menu)
+       ========================================================= -->
+  <header class="navbar-header">
+    <nav class="navbar" aria-label="Main Navigation">
+      <!-- College Brand Logo & Name -->
+      <a href="#home" class="nav-brand">
+        <span class="brand-badge">VDM</span>
+        <span class="brand-text">Connect</span>
+      </a>
+
+      <!-- Pure CSS Hamburger Checkbox for Mobile -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+        <span class="hamburger-bar"></span>
+      </label>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#courses" class="nav-link">Courses</a></li>
+        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       2. HOME / HERO SECTION (Full-screen background + Blur overlay)
+       ========================================================= -->
+  <section id="home" class="hero-section">
+    <!-- Semi-transparent blur overlay for readability -->
+    <div class="hero-overlay"></div>
+
+    <div class="hero-container">
+      <!-- Left Column: Welcome Introduction & CTA Button -->
+      <div class="hero-content">
+        <span class="hero-tag">Empowering Minds • Inspiring Futures</span>
+        <h1 class="hero-title">Welcome to <span class="gold-text">VDM Connect</span></h1>
+        <p class="hero-desc">
+          A center of academic brilliance, research innovation, and holistic development. 
+          Discover career-focused degrees, world-class mentorship, and a vibrant community 
+          poised to lead tomorrow's world.
+        </p>
+        <div class="hero-actions">
+          <a href="#courses" class="btn btn-primary">Explore Courses</a>
+          <a href="#about" class="btn btn-outline">Discover VDM</a>
+        </div>
+      </div>
+
+      <!-- Right Column: Pure CSS Auto-Scrolling Notice Board -->
+      <!-- B) Notice Board Feature starts here -->
+      <aside class="notice-board-wrapper" aria-label="College Notice Board">
+        <div class="notice-board-card">
+          <div class="notice-header">
+            <span class="notice-icon">📢</span>
+            <h2 class="notice-title">Notice Board</h2>
+            <span class="live-pulse" title="Live updates active">LIVE</span>
+          </div>
+          <p class="notice-hint">Hover or tap to pause</p>
+
+          <!-- Overflow mask for continuous scrolling text -->
+          <div class="notice-scroller" tabindex="0" role="region" aria-label="Scrolling Notices">
+            <ul class="notice-list">
+              <!-- Set 1 of Notices -->
+              <li class="notice-item">
+                <span class="notice-date">Nov 02</span>
+                <p class="notice-text">Admissions open for Academic Year 2026-27 across BCA, BBA & MSc programs.</p>
+              </li>
+              <li class="notice-item">
+                <span class="notice-date">Nov 08</span>
+                <p class="notice-text">Annual Technology Symposium <strong>'VDM InnoTech 2026'</strong> registrations live.</p>
+              </li>
+              <li class="notice-item">
+                <span class="notice-date">Nov 15</span>
+                <p class="notice-text">Mid-term laboratory assessments scheduled for Computer Science & IT streams.</p>
+              </li>
+              <li class="notice-item">
+                <span class="notice-date">Nov 22</span>
+                <p class="notice-text">Campus Recruitment Drive: Over 40+ leading corporate partners participating.</p>
+              </li>
+              <li class="notice-item">
+                <span class="notice-date">Nov 29</span>
+                <p class="notice-text">Guest Lecture on Generative AI & Cloud Architecture by industry leaders.</p>
+              </li>
+              <li class="notice-item">
+                <span class="notice-date">Dec 05</span>
+                <p class="notice-text">Inter-collegiate cultural & athletic meet registrations close this Friday.</p>
+              </li>
+
+              <!-- Set 2 (Duplicate for continuous seamless infinite loop) -->
+              <li class="notice-item" aria-hidden="true">
+                <span class="notice-date">Nov 02</span>
+                <p class="notice-text">Admissions open for Academic Year 2026-27 across BCA, BBA & MSc programs.</p>
+              </li>
+              <li class="notice-item" aria-hidden="true">
+                <span class="notice-date">Nov 08</span>
+                <p class="notice-text">Annual Technology Symposium <strong>'VDM InnoTech 2026'</strong> registrations live.</p>
+              </li>
+              <li class="notice-item" aria-hidden="true">
+                <span class="notice-date">Nov 15</span>
+                <p class="notice-text">Mid-term laboratory assessments scheduled for Computer Science & IT streams.</p>
+              </li>
+              <li class="notice-item" aria-hidden="true">
+                <span class="notice-date">Nov 22</span>
+                <p class="notice-text">Campus Recruitment Drive: Over 40+ leading corporate partners participating.</p>
+              </li>
+              <li class="notice-item" aria-hidden="true">
+                <span class="notice-date">Nov 29</span>
+                <p class="notice-text">Guest Lecture on Generative AI & Cloud Architecture by industry leaders.</p>
+              </li>
+              <li class="notice-item" aria-hidden="true">
+                <span class="notice-date">Dec 05</span>
+                <p class="notice-text">Inter-collegiate cultural & athletic meet registrations close this Friday.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <!-- Notice Board Feature ends here -->
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3. ABOUT US SECTION
+       ========================================================= -->
+  <section id="about" class="about-section">
+    <div class="section-container">
+      <div class="section-heading">
+        <span class="sub-title">Our Heritage & Mission</span>
+        <h2 class="main-title">About VDM College</h2>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text-card">
+          <h3 class="about-subtitle">Nurturing Innovators for Over 25 Years</h3>
+          <p>
+            Established with a vision to democratize quality higher education, <strong>VDM College</strong> 
+            stands tall as an accredited pioneer in undergraduate and postgraduate disciplines. 
+            Our modern campus integrates cutting-edge computing laboratories, comprehensive libraries, 
+            and modern athletic facilities.
+          </p>
+          <p>
+            We blend rigorous academic theory with real-world industry apprenticeships, fostering analytical 
+            acumen, leadership, and ethical citizenship in every student.
+          </p>
+          
+          <!-- Key Statistics Grid -->
+          <div class="about-stats-grid">
+            <div class="stat-box">
+              <span class="stat-number">25+</span>
+              <span class="stat-label">Years of Excellence</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Placement Record</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">15k+</span>
+              <span class="stat-label">Alumni Network</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Corporate Partners</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-features-card">
+          <h3 class="about-subtitle">Why Choose VDM Connect?</h3>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-icon">🎓</span>
+              <div>
+                <h4>Accredited Curriculum</h4>
+                <p>Industry-aligned syllabi updated regularly in partnership with technology leaders.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon">🔬</span>
+              <div>
+                <h4>State-of-the-Art Labs</h4>
+                <p>High-performance computing, IoT research units, and digital media studios.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon">💼</span>
+              <div>
+                <h4>Dedicated Placement Cell</h4>
+                <p>Rigorous pre-placement grooming, resume workshops, and hackathons.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. COURSES SECTION (Interactive cards with pure CSS HOVER reveal)
+       ========================================================= -->
+  <section id="courses" class="courses-section">
+    <div class="section-container">
+      <div class="section-heading">
+        <span class="sub-title">Academics</span>
+        <h2 class="main-title">Featured Academic Programs</h2>
+        <div class="title-underline"></div>
+        <p class="section-desc">
+          Hover over any course card or the View Details button to instantly reveal course duration, eligibility, fees, and career paths.
+        </p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Course 1: BCA -->
+        <article class="course-card" tabindex="0">
+          <div class="card-top">
+            <span class="course-tag">Undergraduate</span>
+            <span class="course-badge">Tech</span>
+          </div>
+          <h3 class="course-title">Bachelor of Computer Applications (BCA)</h3>
+          <p class="course-summary">
+            A comprehensive program covering modern software engineering, web development, algorithms, 
+            cloud computing, and data structures.
+          </p>
+          
+          <ul class="course-highlights">
+            <li>Full-Stack Software Development</li>
+            <li>Database Systems & Cloud Essentials</li>
+            <li>Mobile & Enterprise Applications</li>
+          </ul>
+
+          <!-- Pure CSS interactive details: HOVER REVEAL -->
+          <div class="course-details" tabindex="0">
+            <div class="details-btn">
+              <span class="btn-text">View Details</span>
+              <span class="toggle-icon">▼</span>
+            </div>
+            <div class="details-content">
+              <div class="detail-row">
+                <span class="detail-label">Duration:</span>
+                <span class="detail-value">3 Years (6 Semesters)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Eligibility:</span>
+                <span class="detail-value">10+2 with Math/Stats/CS (Min 50%)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Annual Fees:</span>
+                <span class="detail-value">$3,200 / ₹75,000</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Career Roles:</span>
+                <span class="detail-value">Software Engineer, Systems Analyst, Web Developer</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course 2: BBA -->
+        <article class="course-card" tabindex="0">
+          <div class="card-top">
+            <span class="course-tag">Undergraduate</span>
+            <span class="course-badge">Management</span>
+          </div>
+          <h3 class="course-title">Bachelor of Business Administration (BBA)</h3>
+          <p class="course-summary">
+            Build a robust foundation in strategic management, digital marketing, corporate finance, 
+            and global entrepreneurship.
+          </p>
+
+          <ul class="course-highlights">
+            <li>Strategic Marketing & Analytics</li>
+            <li>Corporate Finance & Investment</li>
+            <li>Leadership & Organizational Behavior</li>
+          </ul>
+
+          <!-- Pure CSS interactive details: HOVER REVEAL -->
+          <div class="course-details" tabindex="0">
+            <div class="details-btn">
+              <span class="btn-text">View Details</span>
+              <span class="toggle-icon">▼</span>
+            </div>
+            <div class="details-content">
+              <div class="detail-row">
+                <span class="detail-label">Duration:</span>
+                <span class="detail-value">3 Years (6 Semesters)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Eligibility:</span>
+                <span class="detail-value">10+2 Any Stream (Min 50%)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Annual Fees:</span>
+                <span class="detail-value">$3,000 / ₹70,000</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Career Roles:</span>
+                <span class="detail-value">Marketing Executive, Financial Analyst, HR Associate</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course 3: MSc -->
+        <article class="course-card" tabindex="0">
+          <div class="card-top">
+            <span class="course-tag">Postgraduate</span>
+            <span class="course-badge">Advanced IT</span>
+          </div>
+          <h3 class="course-title">Master of Science in IT (MSc)</h3>
+          <p class="course-summary">
+            Specialized postgraduate degree focusing on advanced machine learning, distributed systems, 
+            cybersecurity, and large-scale data science.
+          </p>
+
+          <ul class="course-highlights">
+            <li>Applied Machine Learning & AI</li>
+            <li>Network Security & Cryptography</li>
+            <li>Big Data Analytics & Research Thesis</li>
+          </ul>
+
+          <!-- Pure CSS interactive details: HOVER REVEAL -->
+          <div class="course-details" tabindex="0">
+            <div class="details-btn">
+              <span class="btn-text">View Details</span>
+              <span class="toggle-icon">▼</span>
+            </div>
+            <div class="details-content">
+              <div class="detail-row">
+                <span class="detail-label">Duration:</span>
+                <span class="detail-value">2 Years (4 Semesters)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Eligibility:</span>
+                <span class="detail-value">BCA / BSc CS / IT (Min 55%)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Annual Fees:</span>
+                <span class="detail-value">$4,200 / ₹95,000</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Career Roles:</span>
+                <span class="detail-value">Data Scientist, ML Engineer, Cybersecurity Consultant</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. ACHIEVEMENTS SLIDER (Pure CSS Auto-scroll + Safe Layout)
+       ========================================================= -->
+  <section id="achievements" class="achievements-section">
+    <div class="section-container">
+      <div class="section-heading">
+        <span class="sub-title">Moments of Pride</span>
+        <h2 class="main-title">Our Achievements</h2>
+        <div class="title-underline"></div>
+        <p class="section-desc">
+          Celebrating the triumphs, medals, research breakthroughs, and accolades earned by our students and faculty.
+        </p>
+      </div>
+
+      <!-- Pure CSS Slider Component with Continuous Infinite Ticker -->
+      <div class="achievements-slider-container">
+        <!-- Status indicator bar -->
+        <div class="slider-manual-controls">
+          <span class="controls-label">🏆 Student Milestones</span>
+          <span class="controls-hint">Hover / tap to pause</span>
+        </div>
+
+        <!-- The Track containing continuous moving cards -->
+        <div class="achievements-track-wrapper">
+          <div class="achievements-track" tabindex="0" role="region" aria-label="Achievements Showcase">
+            
+            <!-- Slide 1 -->
+            <div class="achievement-card">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" 
+                     alt="Students celebrating national hackathon victory" 
+                     loading="lazy" class="achievement-img">
+                <span class="achievement-pill">1st Place</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">National Hackathon Champions</h3>
+                <p class="achievement-caption">Our BCA innovators clinched top honors at the National AI Coding Conclave 2026.</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="achievement-card">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80" 
+                     alt="VDM College University Convocation ceremony" 
+                     loading="lazy" class="achievement-img">
+                <span class="achievement-pill">Rank 1</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">University Gold Medals</h3>
+                <p class="achievement-caption">Three MSc students secured overall university first ranks in advanced analytics.</p>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="achievement-card">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" 
+                     alt="BBA business pitch competition" 
+                     loading="lazy" class="achievement-img">
+                <span class="achievement-pill">Global Seed Fund</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Best B-School Venture</h3>
+                <p class="achievement-caption">BBA entrepreneurship cell raised $50,000 for their eco-logistics venture.</p>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="achievement-card">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80" 
+                     alt="College athletic team holding trophy" 
+                     loading="lazy" class="achievement-img">
+                <span class="achievement-pill">State Gold</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Inter-University Sports Trophy</h3>
+                <p class="achievement-caption">VDM Athletics squad retained the State Championship cup for the 3rd year in a row.</p>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="achievement-card">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" 
+                     alt="Placement celebration at campus" 
+                     loading="lazy" class="achievement-img">
+                <span class="achievement-pill">100% Placed</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Campus Placement Milestone</h3>
+                <p class="achievement-caption">Over 650 students placed with leading Fortune 500 enterprises in 2026.</p>
+              </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="achievement-card">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" 
+                     alt="Research laboratory scientific publication" 
+                     loading="lazy" class="achievement-img">
+                <span class="achievement-pill">IEEE Published</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Research Publication Honors</h3>
+                <p class="achievement-caption">Faculty and postgraduates published 18 peer-reviewed research papers this year.</p>
+              </div>
+            </div>
+
+            <!-- Duplicate Set for Seamless Continuous Infinite Carousel Loop -->
+            <div class="achievement-card" aria-hidden="true">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" 
+                     alt="" loading="lazy" class="achievement-img">
+                <span class="achievement-pill">1st Place</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">National Hackathon Champions</h3>
+                <p class="achievement-caption">Our BCA innovators clinched top honors at the National AI Coding Conclave 2026.</p>
+              </div>
+            </div>
+
+            <div class="achievement-card" aria-hidden="true">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80" 
+                     alt="" loading="lazy" class="achievement-img">
+                <span class="achievement-pill">Rank 1</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">University Gold Medals</h3>
+                <p class="achievement-caption">Three MSc students secured overall university first ranks in advanced analytics.</p>
+              </div>
+            </div>
+
+            <div class="achievement-card" aria-hidden="true">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" 
+                     alt="" loading="lazy" class="achievement-img">
+                <span class="achievement-pill">Global Seed Fund</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Best B-School Venture</h3>
+                <p class="achievement-caption">BBA entrepreneurship cell raised $50,000 for their eco-logistics venture.</p>
+              </div>
+            </div>
+
+            <div class="achievement-card" aria-hidden="true">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80" 
+                     alt="" loading="lazy" class="achievement-img">
+                <span class="achievement-pill">State Gold</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Inter-University Sports Trophy</h3>
+                <p class="achievement-caption">VDM Athletics squad retained the State Championship cup for the 3rd year in a row.</p>
+              </div>
+            </div>
+
+            <div class="achievement-card" aria-hidden="true">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" 
+                     alt="" loading="lazy" class="achievement-img">
+                <span class="achievement-pill">100% Placed</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Campus Placement Milestone</h3>
+                <p class="achievement-caption">Over 650 students placed with leading Fortune 500 enterprises in 2026.</p>
+              </div>
+            </div>
+
+            <div class="achievement-card" aria-hidden="true">
+              <div class="achievement-image-box">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" 
+                     alt="" loading="lazy" class="achievement-img">
+                <span class="achievement-pill">IEEE Published</span>
+              </div>
+              <div class="achievement-body">
+                <h3 class="achievement-headline">Research Publication Honors</h3>
+                <p class="achievement-caption">Faculty and postgraduates published 18 peer-reviewed research papers this year.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. CONTACT SECTION (Sample Data Cards - No Form Required)
+       ========================================================= -->
+  <section id="contact" class="contact-section">
+    <div class="section-container">
+      <div class="section-heading">
+        <span class="sub-title">Get In Touch</span>
+        <h2 class="main-title">Contact VDM Connect</h2>
+        <div class="title-underline"></div>
+        <p class="section-desc">
+          Have queries about admissions, campus tours, or academic courses? Connect with our administration team.
+        </p>
+      </div>
+
+      <div class="contact-cards-grid">
+        <!-- Address Card -->
+        <div class="contact-card">
+          <div class="contact-icon-box">📍</div>
+          <h3 class="contact-card-title">Campus Location</h3>
+          <p class="contact-card-text">
+            VDM Knowledge Enclave, University Boulevard,<br>
+            Tech City Campus, Bengaluru, Karnataka 560100
+          </p>
+          <span class="contact-hint">Open for visits Mon - Sat</span>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="contact-card">
+          <div class="contact-icon-box">📞</div>
+          <h3 class="contact-card-title">Phone & Admissions</h3>
+          <p class="contact-card-text">
+            <strong>Admissions:</strong> +91 (80) 4567 8900<br>
+            <strong>General Office:</strong> +91 (80) 4567 8901<br>
+            <strong>Toll Free:</strong> 1800-200-8362
+          </p>
+          <span class="contact-hint">9:00 AM - 5:30 PM IST</span>
+        </div>
+
+        <!-- Email Card -->
+        <div class="contact-card">
+          <div class="contact-icon-box">✉️</div>
+          <h3 class="contact-card-title">Electronic Mail</h3>
+          <p class="contact-card-text">
+            <strong>Inquiries:</strong> admissions@vdmconnect.edu<br>
+            <strong>Support:</strong> info@vdmconnect.edu<br>
+            <strong>Placement Cell:</strong> placements@vdmconnect.edu
+          </p>
+          <span class="contact-hint">Quick response within 24 hours</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7. FOOTER SECTION
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <span class="brand-badge">VDM</span>
+            <span class="brand-text">Connect</span>
+          </div>
+          <p class="footer-motto">
+            Committed to intellectual leadership, scientific rigor, and transformative student experiences.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Quick Navigation</h4>
+          <ul class="footer-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About College</a></li>
+            <li><a href="#courses">Academic Courses</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact Information</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Academic Wings</h4>
+          <ul class="footer-nav">
+            <li><a href="#courses">School of Computing (BCA)</a></li>
+            <li><a href="#courses">School of Management (BBA)</a></li>
+            <li><a href="#courses">School of Advanced IT (MSc)</a></li>
+            <li><a href="#home">Admissions Cell 2026</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>VDM Connect</strong> - VDM College of Higher Education. All Rights Reserved.</p>
+        <p class="footer-subtext">Designed with modern, clean HTML5 &amp; CSS3 standards.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

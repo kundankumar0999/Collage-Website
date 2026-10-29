@@ -1,0 +1,1377 @@
+/* ==========================================================================
+   VDM CONNECT - OFFICIAL COLLEGE PORTAL STYLESHEET
+   100% Pure CSS3 (No JavaScript, No External Frameworks)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CSS VARIABLES (DESIGN TOKENS)
+   ========================================================================== */
+:root {
+  /* Required Primary Colors */
+  --primary-navy: #0B1F3A;         /* Deep Navy Blue */
+  --gold-accent: #C9A227;          /* Premium Gold Accent */
+  --soft-white: #F8F9FC;           /* Soft White Background */
+
+  /* Supporting Color Palette */
+  --navy-light: #163259;           /* Medium Navy for card accents & hover */
+  --navy-dark: #061121;            /* Darker Navy for high contrast */
+  --gold-hover: #b08d1e;           /* Darker Gold for hover states */
+  --gold-light: #fef8e7;           /* Pale Gold tint for badges & highlights */
+  --text-dark: #1E293B;            /* Slate Dark for primary reading text */
+  --text-muted: #64748B;           /* Cool Slate Gray for secondary text */
+  --text-light: #F8F9FC;           /* Light text on dark backgrounds */
+  --card-bg: #FFFFFF;              /* Pure white for surface cards */
+  --card-border: #E2E8F0;          /* Soft boundary border */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 5px rgba(11, 31, 58, 0.05);
+  --shadow-md: 0 6px 18px rgba(11, 31, 58, 0.09);
+  --shadow-lg: 0 12px 28px rgba(11, 31, 58, 0.14);
+  --shadow-gold: 0 8px 20px rgba(201, 162, 39, 0.25);
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Smooth Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & BASE STYLES (Zero White Leakage)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile-first base font size: 14px makes mobile view neat and non-bulky */
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 66px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--soft-white);
+  color: var(--text-dark);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Reusable Containers & Headings */
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.8rem 1.1rem;
+  box-sizing: border-box;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 2rem auto;
+}
+
+.sub-title {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold-accent);
+  margin-bottom: 0.35rem;
+}
+
+.main-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--primary-navy);
+  margin-bottom: 0.6rem;
+  line-height: 1.25;
+}
+
+.title-underline {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-accent), var(--primary-navy));
+  margin: 0 auto 0.8rem auto;
+  border-radius: var(--radius-full);
+}
+
+.section-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   3. NAVIGATION BAR (Fixed at Top with Pure CSS Mobile Menu)
+   ========================================================================== */
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100vw;
+  height: 58px;
+  background-color: rgba(11, 31, 58, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Brand Logo */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-light);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, var(--gold-accent), #f1d575);
+  color: var(--primary-navy);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-text {
+  font-family: var(--font-heading);
+  color: var(--text-light);
+}
+
+/* Pure CSS Hamburger Checkbox Toggle (Hidden input) */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hamburger-bar,
+.hamburger-bar::before,
+.hamburger-bar::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--gold-accent);
+  border-radius: 2px;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+  position: relative;
+}
+
+.hamburger-bar::before {
+  position: absolute;
+  top: -6px;
+}
+
+.hamburger-bar::after {
+  position: absolute;
+  top: 6px;
+}
+
+/* Mobile Nav Links Dropdown (Default Mobile State) */
+.nav-links {
+  position: absolute;
+  top: 58px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--primary-navy);
+  border-bottom: 2px solid var(--gold-accent);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.4rem;
+  gap: 0.6rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  box-sizing: border-box;
+}
+
+/* Checkbox Toggle Effect: Reveal menu on mobile */
+.nav-toggle:checked ~ .nav-links {
+  max-height: 320px;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hamburger to X icon transformation */
+.nav-toggle:checked ~ .nav-toggle-label .hamburger-bar {
+  background-color: transparent;
+}
+.nav-toggle:checked ~ .nav-toggle-label .hamburger-bar::before {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle:checked ~ .nav-toggle-label .hamburger-bar::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Nav Link Hover & Underline Effect */
+.nav-link {
+  color: var(--soft-white);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  display: inline-block;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gold-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-normal);
+}
+
+.nav-link:hover {
+  color: var(--gold-accent);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================================================
+   4. HOME / HERO SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  padding-top: 76px;
+  padding-bottom: 2.5rem;
+  box-sizing: border-box;
+
+  /* === CHANGE HERO CAMPUS IMAGE URL HERE ===
+     Replace the Unsplash link below with your own campus image path if desired:
+     e.g., url('images/campus.jpg') */
+  background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=85');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* Semi-Transparent Blur/Dark Overlay (Guaranteed No Leaking) */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 31, 58, 0.90) 0%,
+    rgba(6, 17, 33, 0.86) 100%
+  );
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.1rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  box-sizing: border-box;
+}
+
+/* Hero Content & Non-bulky Mobile Typography */
+.hero-content {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-tag {
+  display: inline-block;
+  background-color: rgba(201, 162, 39, 0.16);
+  color: var(--gold-accent);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  line-height: 1.22;
+  color: #FFFFFF;
+  margin-bottom: 0.8rem;
+  word-wrap: break-word;
+}
+
+.gold-text {
+  color: var(--gold-accent);
+  background: linear-gradient(135deg, #fce588, var(--gold-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+  font-size: 0.85rem;
+  color: rgba(248, 249, 252, 0.88);
+  max-width: 540px;
+  margin-bottom: 1.4rem;
+  line-height: 1.55;
+}
+
+/* Call-to-Action Buttons (Neat Mobile Size) */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-accent), #dfb634);
+  color: var(--primary-navy);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #e3bd3f, var(--gold-accent));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 162, 39, 0.35);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--soft-white);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--gold-accent);
+  color: var(--gold-accent);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   5. NOTICE BOARD (Compact & Auto-Scrolling with Pause on Hover)
+   ========================================================================== */
+.notice-board-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeInUp 0.9s ease forwards;
+}
+
+.notice-board-card {
+  background: rgba(11, 31, 58, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 39, 0.32);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+  box-sizing: border-box;
+}
+
+.notice-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+.notice-icon {
+  font-size: 1.1rem;
+}
+
+.notice-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--soft-white);
+  font-weight: 700;
+  flex: 1;
+}
+
+/* Flashing LIVE status indicator */
+.live-pulse {
+  background-color: #ef4444;
+  color: #FFFFFF;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.8px;
+  animation: pulseAnimation 2s infinite ease-in-out;
+}
+
+.notice-hint {
+  font-size: 0.65rem;
+  color: rgba(201, 162, 39, 0.85);
+  margin-top: 0.3rem;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* The Fixed Window Container */
+.notice-scroller {
+  height: 185px;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+}
+
+/* Fade gradients for smooth look */
+.notice-scroller::before,
+.notice-scroller::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  z-index: 3;
+  pointer-events: none;
+}
+.notice-scroller::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(11, 31, 58, 0.95), transparent);
+}
+.notice-scroller::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(11, 31, 58, 0.95), transparent);
+}
+
+/* Animated List */
+.notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  animation: noticeScroll 18s linear infinite;
+}
+
+/* PAUSE scrolling when hovered or focused */
+.notice-scroller:hover .notice-list,
+.notice-scroller:focus-within .notice-list {
+  animation-play-state: paused;
+}
+
+.notice-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 2.5px solid var(--gold-accent);
+  padding: 0.45rem 0.65rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.notice-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(3px);
+}
+
+.notice-date {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.1rem;
+}
+
+.notice-text {
+  font-size: 0.77rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+@keyframes noticeScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes pulseAnimation {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.95); }
+}
+
+/* ==========================================================================
+   6. ABOUT US SECTION
+   ========================================================================== */
+.about-section {
+  width: 100%;
+  max-width: 100vw;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--card-border);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.about-text-card {
+  background-color: var(--soft-white);
+  padding: 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+}
+
+.about-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--primary-navy);
+  margin-bottom: 0.8rem;
+}
+
+.about-text-card p {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.55;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.stat-box {
+  background: #FFFFFF;
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  border-left: 2.5px solid var(--gold-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.about-features-card {
+  background-color: var(--primary-navy);
+  color: var(--soft-white);
+  padding: 1.4rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.about-features-card .about-subtitle {
+  color: var(--soft-white);
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+
+.feature-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  font-size: 1.2rem;
+  background: rgba(201, 162, 39, 0.15);
+  padding: 0.45rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  line-height: 1;
+}
+
+.feature-item h4 {
+  font-size: 0.92rem;
+  color: var(--gold-accent);
+  margin-bottom: 0.2rem;
+}
+
+.feature-item p {
+  font-size: 0.78rem;
+  color: rgba(248, 249, 252, 0.8);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   7. COURSES SECTION (Pure CSS HOVER REVEAL)
+   ========================================================================== */
+.courses-section {
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--soft-white);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+}
+
+/* Course Card Base & Lift-up Hover Effect */
+.course-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  outline: none;
+}
+
+/* Card hover animation: lifts up smoothly and reveals a bigger shadow */
+.course-card:hover,
+.course-card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(201, 162, 39, 0.6);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.course-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--gold-accent);
+  background-color: var(--gold-light);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.course-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--soft-white);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.course-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--primary-navy);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.course-summary {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.course-highlights {
+  margin-bottom: 1rem;
+  border-top: 1px dashed var(--card-border);
+  padding-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.course-highlights li {
+  font-size: 0.76rem;
+  color: var(--text-dark);
+  position: relative;
+  padding-left: 1rem;
+}
+
+.course-highlights li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold-accent);
+  font-weight: 700;
+}
+
+/* Pure CSS Course Details: HOVER REVEAL FEATURE */
+.course-details {
+  border-top: 1px solid var(--card-border);
+  padding-top: 0.8rem;
+  margin-top: auto;
+  position: relative;
+  outline: none;
+}
+
+.details-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--soft-white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  color: var(--primary-navy);
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+}
+
+.toggle-icon {
+  font-size: 0.7rem;
+  color: var(--gold-accent);
+  transition: transform var(--transition-normal);
+}
+
+/* Details Content Hidden By Default */
+.details-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-4px);
+  transition: max-height 0.4s ease, opacity 0.35s ease, transform 0.35s ease, margin-top 0.3s ease;
+  margin-top: 0;
+  background: var(--soft-white);
+  border-radius: var(--radius-sm);
+  border-left: 2.5px solid var(--gold-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* === HOVER REVEAL IN ACTION ===
+   Hovering over the course card OR the view detail button smoothly shows the details! */
+.course-card:hover .details-content,
+.course-card:focus-within .details-content,
+.course-details:hover .details-content {
+  max-height: 280px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 0.65rem;
+  padding: 0.75rem;
+}
+
+.course-card:hover .details-btn,
+.course-card:focus-within .details-btn,
+.course-details:hover .details-btn {
+  background-color: var(--primary-navy);
+  color: var(--gold-accent);
+  border-color: var(--primary-navy);
+}
+
+.course-card:hover .toggle-icon,
+.course-card:focus-within .toggle-icon,
+.course-details:hover .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 0.25rem;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--primary-navy);
+}
+
+.detail-value {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   8. ACHIEVEMENTS SLIDER (Guaranteed No Overflow Leakage)
+   ========================================================================== */
+.achievements-section {
+  width: 100%;
+  max-width: 100vw;
+  background: #FFFFFF;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  box-sizing: border-box;
+  overflow: hidden;
+  contain: paint;
+}
+
+.achievements-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.slider-manual-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0 0.2rem;
+}
+
+.controls-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.controls-hint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Achievements Scrolling Mask */
+.achievements-track-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Continuous Moving Track */
+.achievements-track {
+  display: flex;
+  gap: 1.1rem;
+  width: max-content;
+  animation: marqueeLeft 30s linear infinite;
+  padding: 0.4rem 0;
+}
+
+/* PAUSE automatic slider on hover or touch */
+.achievements-slider-container:hover .achievements-track,
+.achievements-track:focus-within {
+  animation-play-state: paused;
+}
+
+/* Individual Achievement Slide Card (Compact Size) */
+.achievement-card {
+  width: 230px;
+  flex-shrink: 0;
+  background: var(--soft-white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.achievement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(201, 162, 39, 0.5);
+}
+
+.achievement-image-box {
+  position: relative;
+  width: 100%;
+  height: 135px;
+  overflow: hidden;
+  background-color: #e2e8f0;
+}
+
+.achievement-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.achievement-card:hover .achievement-img {
+  transform: scale(1.05);
+}
+
+.achievement-pill {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(11, 31, 58, 0.9);
+  color: var(--gold-accent);
+  border: 1px solid var(--gold-accent);
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.4px;
+}
+
+.achievement-body {
+  padding: 0.85rem;
+}
+
+.achievement-headline {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  color: var(--primary-navy);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.achievement-caption {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Endless Left Marquee Keyframes */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   9. CONTACT SECTION
+   ========================================================================== */
+.contact-section {
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--soft-white);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(201, 162, 39, 0.5);
+}
+
+.contact-icon-box {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.9rem auto;
+  border-radius: var(--radius-full);
+  background: var(--primary-navy);
+  color: var(--gold-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--primary-navy);
+  margin-bottom: 0.6rem;
+}
+
+.contact-card-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 0.8rem;
+}
+
+.contact-hint {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--gold-accent);
+  background-color: var(--gold-light);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   10. FOOTER SECTION
+   ========================================================================== */
+.site-footer {
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--navy-dark);
+  color: rgba(248, 249, 252, 0.8);
+  border-top: 3px solid var(--gold-accent);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.1rem 1.5rem 1.1rem;
+  box-sizing: border-box;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.6rem;
+}
+
+.footer-motto {
+  font-size: 0.78rem;
+  color: rgba(248, 249, 252, 0.7);
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--gold-accent);
+  margin-bottom: 0.7rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.footer-nav a {
+  color: rgba(248, 249, 252, 0.75);
+  font-size: 0.78rem;
+  transition: all var(--transition-fast);
+}
+
+.footer-nav a:hover {
+  color: var(--gold-accent);
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: rgba(248, 249, 252, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-bottom strong {
+  color: var(--gold-accent);
+}
+
+.footer-subtext {
+  font-size: 0.68rem;
+}
+
+/* ==========================================================================
+   11. ENTRANCE ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   12. RESPONSIVE MEDIA QUERIES (Mobile-First Architecture)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tablet Breakpoint: min-width: 768px
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  html {
+    font-size: 15px;
+    scroll-padding-top: 72px;
+  }
+
+  .navbar-header {
+    height: 66px;
+  }
+
+  .nav-links {
+    top: 66px;
+  }
+
+  .hero-section {
+    padding-top: 86px;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .section-container {
+    padding: 3.8rem 1.5rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+
+  .contact-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .achievement-card {
+    width: 280px;
+  }
+
+  .achievement-image-box {
+    height: 160px;
+  }
+
+  .detail-row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Desktop & Laptop Breakpoint: min-width: 1024px
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+    scroll-padding-top: 80px;
+  }
+
+  .navbar-header {
+    height: 74px;
+  }
+
+  /* Hide Mobile Hamburger Toggle on Desktop */
+  .nav-toggle-label {
+    display: none;
+  }
+
+  /* Desktop Horizontal Navbar Menu */
+  .nav-links {
+    position: static;
+    width: auto;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    flex-direction: row;
+    padding: 0;
+    gap: 1.8rem;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Home Section Two-Column Layout (Welcome on left, Notice Board on right) */
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-content {
+    flex: 1.3;
+    padding-right: 2rem;
+  }
+
+  .notice-board-wrapper {
+    flex: 0.9;
+    max-width: 400px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  /* 3 Cards in a Row for Courses on Large Screens */
+  .courses-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .achievement-card {
+    width: 310px;
+  }
+
+  .achievement-image-box {
+    height: 175px;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
